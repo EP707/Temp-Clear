@@ -99,12 +99,18 @@ int main()
 	if (op == 1) {
 		system("echo Exiting.. Byee!");
 	} else if (op == 2) {
-		system("echo Starting cleanmgr.");
-		if(system("cleanmgr /D C")) {
-			system("echo cleanmgr started.");
-		} else {
-			system("echo cleanmgr not started.");
-		}
+		system("echo @echo off > temp.bat");
+		system("echo echo starting dfrgui >> temp.bat" );
+		system("echo dfrgui >> temp.bat" );
+		system("echo echo starting cleanmgr >> temp.bat"); 
+		system("echo cleanmgr /D C >> temp.bat ");
+		system("temp.bat");
+		// system("echo Starting cleanmgr.");
+		// if(system("cleanmgr /D C")) {
+		// 	system("echo cleanmgr started.");
+		// } else {
+		// 	system("echo cleanmgr not started.");
+		// }
 		// system("echo Starting dfrgui.");
 		// if(system("dfrgui /?")) {
 		// 	system("echo dfrgui started.");
@@ -112,6 +118,7 @@ int main()
 		// 	system("echo dfrgui not started.");
 		// }
 		system("echo Exiting.. Byee!");
+		system("del temp.bat");
 	} else {
 		system("echo Entered value is not correct && echo Exiting.. Byee!");
 	}
